@@ -22,19 +22,22 @@ for (let i = 0; i < board.grid.length; i++) {
         cell.dataset.row = i;
         cell.dataset.col = j;
         row.appendChild(cell);
+        cell.addEventListener("click", e => {
+            e.preventDefault();
+            if (board.makeHit(i, j) !== null) cell.style.backgroundColor = "green";
+            else cell.style.backgroundColor = "red";
+        });
     }
     boardArea.appendChild(row);
 }
 
-// let col = document.querySelectorAll("[data-col = '0']");
-let col = document.querySelectorAll("div > .col")
 
-// document.querySelector(‘[data - col = “0”]’)
-console.log(col)
-col.addEventListener("click", event => {
-    event.preventDefault();
-    col.style.backgroundColor = "red";
-})
+/*
+When the square is clicked, you should call the .makeHit(row, col) method
+ on the board passing in the row and the column that the square is on to update the game.
+*/
+
+// let col = document.querySelector("[data-row = '0'][data-col = '0']");
 
 // link that square HTML element with the cell in the grid by storing the data about the row
 // and the column of the cell on the HTML element.
