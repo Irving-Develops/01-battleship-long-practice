@@ -26,6 +26,16 @@ for (let i = 0; i < board.grid.length; i++) {
     boardArea.appendChild(row);
 }
 
+// let col = document.querySelectorAll("[data-col = '0']");
+let col = document.querySelectorAll("div > .col")
+
+// document.querySelector(‘[data - col = “0”]’)
+console.log(col)
+col.addEventListener("click", event => {
+    event.preventDefault();
+    col.style.backgroundColor = "red";
+})
+
 // link that square HTML element with the cell in the grid by storing the data about the row
 // and the column of the cell on the HTML element.
 
